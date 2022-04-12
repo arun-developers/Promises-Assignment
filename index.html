@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #image {
+            margin: auto;
+            width: 20%;
+
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <img id="image" src="https://c.tenor.com/zecVkmevzcIAAAAM/please-wait.gif" alt="">
+    <input id="ticket" type="text">
+    <button onclick="bookTicket()">Book Ticket</button>
+    <h1></h1>
+</body>
+
+</html>
+<script>
+    function bookTicket() {
+
+        let ticket = document.getElementById("ticket").value;
+
+        let status = "open";
+
+        let mypromise = new Promise(function (resolve, reject) {
+
+            let time = Math.random() * 1000;
+
+            setTimeout(function () {
+
+                if (status === "open") {
+
+                    resolve(ticket);
+                }
+                else {
+
+                    reject();
+                }
+            }, time)
+
+        });
+
+        mypromise.then(function (res) {
+
+            console.log(`${res} Ticket is available`);
+
+            image.src = "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?cs=srgb&dl=pexels-ella-olsson-1640777.jpg&fm=jpg"
+
+            let head = document.querySelector("h1");
+
+            head.innerText = `${res} Food is available!`;
+
+            head.append();
+
+            document.querySelector("body").head
+
+        }).catch(function (error) {
+
+            console.log(`Food is not available`);
+
+        })
+    }
+
+</script>
